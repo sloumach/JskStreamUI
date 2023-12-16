@@ -25,7 +25,6 @@ use App\Http\Controllers\MessageController;
 
 Auth::routes();
 
-
 Route::get('/', [GameController::class, 'create'])->name('indexUser');
 Route::get('/blogs', [GameController::class, 'blogs'])->name('blogs');
 Route::get('/blogdetail{id}', [GameController::class, 'blogdetail'])->name('blogdetail');
