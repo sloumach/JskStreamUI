@@ -209,7 +209,7 @@
                             <!--// Featured Slider \\-->
 
                             <!--// Latest Match Result \\-->
-                            <div class="sportsmagazine-match-result">
+                            <div class="sportsmagazine-match-result" style="margin-bottom: 0px">
                                 <div class="sportsmagazine-match-title">
                                     <h4>Latest Match Result</h4>
                                     <span>{{ $lastGame->gameDate }}</span>
@@ -233,7 +233,7 @@
                             </div>
                             <!--// Latest Match Result \\-->
 
-                            <!--// Fancy Title \\--> <div class="sportsmagazine-fancy-title"><h2>Latest Blogs</h2></div> <!--// Fancy Title \\-->
+                            <!--// Fancy Title \\--> <div class="sportsmagazine-fancy-title" style="margin-top:40px"><h2>Latest News</h2></div> <!--// Fancy Title \\-->
                             <!--// Blog's \\-->
                             <div class="sportsmagazine-blog sportsmagazine-blog-grid">
                                 <ul class="row">
