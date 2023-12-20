@@ -27,6 +27,12 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
+@media (max-width: 767px) {
+  .logo-image {
+    display: block;
+    margin: 0 auto;
+  }
+}
         .truncate-text {
             display: block;
             display: -webkit-box;
@@ -119,14 +125,14 @@
                                         <p>Transforming the realm of basketball, we aspire to reach new heights and redefine the essence of this thrilling sport</p>
                                         {{-- <a href="404.html" class="sportsmagazine-banner-btn">Read More <span></span></a> --}}
                                     </div>
-                                    <div class="sportsmagazine-banner-thumb"> <img src="extra-images/New Projectsss.png" alt=""> </div>
+                                    <div class="sportsmagazine-banner-thumb">  </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="sportsmagazine-banner-one-layer">
-                    <img src="extra-images/New Project.jpg" alt="">
+                    <img src="extra-images/theteam2023.jpg" alt="">
                     <span class="sportsmagazine-banner-pattren"></span>
                     <div class="sportsmagazine-banner-caption">
                         <div class="container">
@@ -137,7 +143,7 @@
                                         <p>L'innovation et la croissance du basketball sont au cœur de notre engagement, façonnant un avenir dynamique pour ce sport passionnant.</p>
                                         {{-- <a href="404.html" class="sportsmagazine-banner-btn">Read More <span></span></a> --}}
                                     </div>
-                                    <div class="sportsmagazine-banner-thumb"> <img src="extra-images/New Projectsss.png" alt=""> </div>
+                                    <div class="sportsmagazine-banner-thumb">  </div>
                                 </div>
                             </div>
                         </div>
@@ -541,7 +547,7 @@
                                 <ul>
                                     @foreach($PopularNews2 as $news)
                                         <li>
-                                            <span>{{ $news->likes }}</span>
+                                            <span> {{ $news->likes }}</span>
                                             <div class="popular_news_text">
                                                 <small>{{ $news->topic }}</small>
                                                 <a href="{{ route('blogdetail', ['id' => $news->id]) }}">{{ $news->title }}</a>

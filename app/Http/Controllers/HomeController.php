@@ -13,6 +13,8 @@ use App\Models\ListesJoueurs;
 use App\Models\Comment;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\CreateLastGameRequest;
+
 
 
 

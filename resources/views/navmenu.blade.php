@@ -2,7 +2,7 @@
             <div class="sportsmagazine-main-header">
                 <div class="container">
                     <div class="row">
-                        <aside class="col-md-2"><a href="index-2.html" class="sportsmagazine-logo"><img src="images/logo-1.png" alt=""></a></aside>
+                        <aside class="col-md-2" ><img class="logo-image" style="width: 110px; height: 100px;" src="images/logo.png" alt=""></aside>
                         <div class="col-md-10">
                             <div class="sportsmagazine-right-section">
                                 <nav class="navbar navbar-default">

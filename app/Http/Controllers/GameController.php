@@ -28,7 +28,7 @@ class GameController extends Controller
         ->orderBy('defaites')
         ->get();
         $nextGame = NextGame::latest()->first();
-        $lastGames = LastGame::all();
+        $lastGames = LastGame::orderBy('gameDate', 'asc')->get();
         $lastGame = LastGame::latest()->first();
 
         $PopularNews2 = PopularNews::orderBy('likes', 'desc')->paginate(6);
