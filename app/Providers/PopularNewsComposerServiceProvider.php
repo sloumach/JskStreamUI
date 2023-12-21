@@ -24,7 +24,7 @@ class PopularNewsComposerServiceProvider extends ServiceProvider
     public function boot()
 {
     View::composer(['index', 'blog-detail'], function ($view) {
-        $popularNews = PopularNews::orderBy('created_at', 'desc')->paginate(4);
+        $popularNews = PopularNews::orderBy('date', 'desc')->paginate(4);
         if (isset($view->getData()['viewData'])) {
             $viewData = $view->getData()['viewData'];
             $comments = Comment::where('post_id', $viewData['post_id'])->get();
