@@ -122,6 +122,33 @@
                                                 </li>
                                             </ul> --}}
                                         </li>
+                                        <li><a href="{{ route('players') }}">OUR PLAYERS</a>
+                                            {{-- <ul class="sportsmagazine-dropdown-menu">
+                                                <li><a href="blog-grid.html">Blog Grid</a>
+                                                    <ul class="sportsmagazine-dropdown-menu">
+                                                        <li><a href="blog-grid.html">Blog Grid W/O/S</a></li>
+                                                        <li><a href="blog-grid-wls.html">Blog Grid W/L/S</a></li>
+                                                        <li><a href="blog-grid-wrs.html">Blog Grid W/R/S</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="blog-large.html">Blog Large</a></li>
+                                                <li><a href="blog-large-wls.html">Blog Large W/L/S</a></li>
+                                                <li><a href="blog-medium.html">Blog Medium</a></li>
+                                                <li><a href="blog-modren.html">Blog Modren</a>
+                                                    <ul class="sportsmagazine-dropdown-menu">
+                                                        <li><a href="blog-modren.html">Blog Modren W/O/S</a></li>
+                                                        <li><a href="blog-modren-wls.html">Blog Modren W/L/S</a></li>
+                                                        <li><a href="blog-modren-wrs.html">Blog Modren W/R/S</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="blog-detail.html">Blog Detail</a>
+                                                    <ul class="sportsmagazine-dropdown-menu">
+                                                        <li><a href="blog-detail.html">Blog Detail W/R/S</a></li>
+                                                        <li><a href="blog-detail-wls.html">Blog Detail W/L/S</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul> --}}
+                                        </li>
                                         {{-- <li><a href="#">OUR SHOP</a>
                                             <ul class="sportsmagazine-dropdown-menu">
                                                 <li><a href="shop-grid.html">Shop Grid</a>

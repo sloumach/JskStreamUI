@@ -11,9 +11,13 @@ use App\Models\PopularNews;
 use App\Models\Message;
 use App\Models\ListesJoueurs;
 use App\Models\Comment;
+use App\Models\Player;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\CreateLastGameRequest;
+use Illuminate\Support\Facades\Validator;
+
+
 
 
 
@@ -52,10 +56,13 @@ class HomeController extends Controller
     }
 
     public function emailinbox()
-    {       $messages = Message::all(); // Remplacez "Message" par le nom de votre modèle de message
+    {
+        $messages = Message::all(); // Remplacez "Message" par le nom de votre modèle de message
 
         return view('email-inbox', compact('messages'));
     }
+
+
     public function store(CreateLastGameRequest $request)
     {
 
@@ -126,21 +133,38 @@ class HomeController extends Controller
                 'max:2048',
                 Rule::dimensions()->ratio(361 / 280)->width(361)->height(280),
             ],
-
-
         ]);
         // Vérifier si une image a été téléchargée
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imagePath = $image->storeAs('public/extra-images', $image->getClientOriginalName()); // Stocker l'image dans le dossier "public/extra-images" avec le nom d'origine du fichier
+            $imagePath = $image->storeAs('extra-images', $image->getClientOriginalName(),'public'); // Stocker l'image dans le dossier "public/extra-images" avec le nom d'origine du fichier
             $validatedData['image'] = '/extra-images/' . $image->getClientOriginalName(); // Ajouter le chemin de l'image validée aux données à enregistrer
         }
-
         // Création d'une nouvelle entrée dans la table
         PopularNews::create($validatedData);
         toastr()->success(__('Popular news shared successufully!'));
         // Redirection ou autre logique après l'ajout
-
+        return redirect()->back();
+    }
+    public function storePlayer(Request $request)
+    {
+        // Valider les données du formulaire
+        $validatedData = $request->validate([
+            'fullname' => 'required',
+            'position' => 'required',
+            'dateofbirth' => 'required|date',
+            'goalsnumber' => 'required|integer',
+            'title' => 'required',
+            'content' => 'required',
+            'image' => 'required|image', // Assurez-vous que le champ "image" est un fichier d'image
+        ]);
+        $image = $request->file('image');
+        $imagePath = $image->storeAs('extra-images', $image->getClientOriginalName(),'public'); // Stocker l'image dans le dossier "public/extra-images" avec le nom d'origine du fichier
+        $validatedData['image'] = '/extra-images/' . $image->getClientOriginalName(); // Ajouter le chemin de l'image validée aux données à enregistrer
+        // Créer un nouveau joueur avec les données validées
+        Player::create($validatedData);
+        toastr()->success(__('Player added successufully!'));
+        // Rediriger ou renvoyer une réponse appropriée
         return redirect()->back();
     }
 

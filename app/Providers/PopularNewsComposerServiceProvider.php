@@ -22,17 +22,17 @@ class PopularNewsComposerServiceProvider extends ServiceProvider
      * Bootstrap services.
      */
     public function boot()
-{
-    View::composer(['index', 'blog-detail'], function ($view) {
-        $popularNews = PopularNews::orderBy('date', 'desc')->paginate(4);
-        if (isset($view->getData()['viewData'])) {
-            $viewData = $view->getData()['viewData'];
-            $comments = Comment::where('post_id', $viewData['post_id'])->get();
-            $view->with('PopularNews', $popularNews)->with('comments', $comments);
-        } else {
-            $view->with('PopularNews', $popularNews);
-        }
+    {
+        View::composer(['index', 'blog-detail'], function ($view) {
+            $popularNews = PopularNews::orderBy('date', 'desc')->paginate(4);
+            if (isset($view->getData()['viewData'])) {
+                $viewData = $view->getData()['viewData'];
+                $comments = Comment::where('post_id', $viewData['post_id'])->get();
+                $view->with('PopularNews', $popularNews)->with('comments', $comments);
+            } else {
+                $view->with('PopularNews', $popularNews);
+            }
 
-    });
-}
+        });
+    }
 }

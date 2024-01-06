@@ -34,9 +34,11 @@ Route::get('/email-inbox', [HomeController::class, 'emailinbox'])->name('emailin
 
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/players', [GameController::class, 'showplayers'])->name('players');
 /* Route::get('/games/create', [GameController::class, 'create'])->name('games.create'); */
 Route::post('/games', [HomeController::class, 'store'])->name('games.store');
 Route::post('/addTeam', [HomeController::class, 'addTeam'])->name('addTeam');
+Route::post('/players', [HomeController::class, 'storePlayer'])->name('players.store');
 Route::post('/addcomment', [UserActionController::class, 'addcomment'])->name('addComment');
 Route::post('/insertNextGame', [HomeController::class, 'insertNextGame'])->name('insertNextGame');
 Route::post('/popular-news', [HomeController::class, 'popularnews'])->name('popular-news.store');

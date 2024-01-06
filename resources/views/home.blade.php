@@ -80,6 +80,73 @@
             </div>
             <div class="col-md-4 col-sm-10 col-xs-10">
                 <div class="card">
+                    <div class="card-header">{{ __('Add players list') }}</div>
+
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('players.store') }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group row">
+                                <label for="fullname" class="col-md-4 col-form-label text-md-right">Nom complet</label>
+                                <div class="col-md-6">
+                                    <input id="fullname" type="text" class="form-control" name="fullname" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="position" class="col-md-4 col-form-label text-md-right">Poste</label>
+                                <div class="col-md-6">
+                                    <input id="position" type="text" class="form-control" name="position" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="dateofbirth" class="col-md-4 col-form-label text-md-right">Date de naissance</label>
+                                <div class="col-md-6">
+                                    <input id="dateofbirth" type="date" class="form-control" name="dateofbirth" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="goalsnumber" class="col-md-4 col-form-label text-md-right">Nombre de buts</label>
+                                <div class="col-md-6">
+                                    <input id="goalsnumber" type="number" class="form-control" name="goalsnumber" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="title" class="col-md-4 col-form-label text-md-right">Titre</label>
+                                <div class="col-md-6">
+                                    <input id="title" type="text" class="form-control" name="title" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="content" class="col-md-4 col-form-label text-md-right">Contenu</label>
+                                <div class="col-md-6">
+                                    <textarea id="content" class="form-control" name="content" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="image" class="col-md-4 col-form-label text-md-right">Image</label>
+                                <div class="col-md-6">
+                                    <input type="file" name="image" id="image" class="form-control-file" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-success mt-1">
+                                        Ajouter le joueur
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-10 col-xs-10">
+                <div class="card">
                 <div class="card-header">{{ __('Classement') }}</div>
 
                 <div class="card-body">
