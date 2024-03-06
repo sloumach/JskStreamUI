@@ -12,12 +12,21 @@ use App\Models\ListesJoueurs;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Message;
+use Symfony\Component\Console\Input\Input;
 
 class UserActionController extends Controller
 {
     //
     public function addcomment(Request $request)
     {
+        $validate = Validator::make($request->all(),([
+            'g-recaptcha-response' => 'required|captcha'
+        ]));
+        if($validate->fails()){
+            toastr()->error(__('Validez le captcha!'));
+
+            return redirect()->back();
+        }
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -44,6 +53,15 @@ class UserActionController extends Controller
 
     public function envoyerMessage(Request $request)
     {
+        $validate = Validator::make($request->all(),([
+            'g-recaptcha-response' => 'required|captcha'
+        ]));
+        if($validate->fails()){
+            toastr()->error(__('Validez le captcha!'));
+
+            return redirect()->back();
+        }
+
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -71,4 +89,6 @@ class UserActionController extends Controller
         // Exemple de redirection vers une page
         return redirect()->back();
     }
+
+
 }

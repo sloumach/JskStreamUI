@@ -247,6 +247,8 @@
                                             </p>
 
                                         </li>
+                                        {!! NoCaptcha::renderJs() !!}
+                                        {!! NoCaptcha::display() !!}
                                         <li>
                                             <input type="hidden" name="post_id" value="{{ $popularNews->id }}">
                                             <p><label><input value="Submit" type="submit"></label></p>
