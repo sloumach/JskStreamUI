@@ -176,6 +176,8 @@
                                                 <span><i class="fa fa-comment"></i></span>
                                             </p>
                                         </li>
+                                        {!! NoCaptcha::renderJs() !!}
+                                        {!! NoCaptcha::display() !!}
                                         <li>
                                             <p><label><input value="Submit" type="submit"></label></p>
                                         </li>
