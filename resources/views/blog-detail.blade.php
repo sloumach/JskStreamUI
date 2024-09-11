@@ -165,7 +165,7 @@
 
                             <div class="comments-area">
                               <!--// coments \\-->
-                              <div class="sportsmagazine-section-heading"><h2>Comments</h2></div>
+                              {{-- <div class="sportsmagazine-section-heading"><h2>Comments</h2></div>
                               <ul class="comment-list">
                                  <li>
                                     @foreach ($comments as $comment)
@@ -174,53 +174,18 @@
                                        <div class="text-holder">
                                           <h6>{{ $comment->name }}</h6>
                                           <time class="post-date" datetime="2008-02-14 20:00">{{ $comment->created_at->diffForHumans() }} </time>
-                                          {{-- <a class="comment-reply-link" href="#">Reply</a> --}}
+
                                        </div>
                                        <p>{{ $comment->comment }}</p>
                                     </div>
                                     @endforeach
-                                    {{-- <div class="thumb-list">
-                                       <figure><img alt="" src="extra-images/comment-img2.jpg"></figure>
-                                       <div class="text-holder">
-                                          <h6>Albert Darren</h6>
-                                          <time class="post-date" datetime="2008-02-14 20:00">1 Hour Ago </time>
-                                          <a class="comment-reply-link" href="#">Reply</a>
-                                       </div>
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac malesuada ante. Curabitur lacinia diam tempus tempor consectetur. Sed vitae dignissim purus, eget aliquam libero. Duis et arcu a erat venenatis ornare eget nec urna.</p>
-                                    </div> --}}
-                                    {{-- <ul class="children">
-                                       <li>
-                                          <div class="thumb-list">
-                                             <figure><img alt="" src="extra-images/comment-img3.jpg"></figure>
-                                             <div class="text-holder">
-                                                <h6>Jeans Morris</h6>
-                                                <time class="post-date" datetime="2008-02-14 20:00">1 Hour Ago </time>
-                                                <a class="comment-reply-link" href="#">Reply</a>
-                                             </div>
-                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac malesuada ante. Curabitur lacinia diam tempus tempor consetur ed vit dignissim purus, eget aliquam libero. Duis et arcu a erat venenatis ornare eget nec urna.</p>
-                                          </div>
-                                       </li>
-                                       <!-- #comment-## -->
-                                    </ul> --}}
-                                    <!-- .children -->
+
                                  </li>
-                                 <!-- #comment-## -->
-                                 {{-- <li>
-                                    <div class="thumb-list">
-                                       <figure><img alt="" src="extra-images/comment-img4.jpg"></figure>
-                                       <div class="text-holder">
-                                          <h6>Ricky David</h6>
-                                          <time class="post-date" datetime="2008-02-14 20:00">1 Hour Ago </time>
-                                          <a class="comment-reply-link" href="#">Reply</a>
-                                       </div>
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac malesuada ante. Curabitur lacinia diam tempus tempor consectetur. Sed vitae dignissim purus, eget aliquam libero. Duis et arcu a erat venenatis ornare eget nec urna.</p>
-                                    </div>
-                                 </li> --}}
-                                 <!-- #comment-## -->
-                              </ul>
+
+                              </ul> --}}
                               <!--// coments \\-->
                               <!--// comment-respond \\-->
-                              <div class="comment-respond sportsmagazine-contact-form">
+                              {{-- <div class="comment-respond sportsmagazine-contact-form">
                                <div class="sportsmagazine-section-heading"><h2>Write A Comment</h2></div>
                                 <form method="POST" action="{{ route('addComment') }}">
                                     @csrf
@@ -255,7 +220,7 @@
                                         </li>
                                     </ul>
                                 </form>
-                              </div>
+                              </div> --}}
                               <!--// comment-respond \\-->
                            </div>
                            {{-- <div class="sportsmagazine-section-heading"><h2>Related Articles</h2></div>

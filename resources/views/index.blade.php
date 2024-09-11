@@ -46,6 +46,9 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+        .has-margin {
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body>
@@ -114,16 +117,19 @@
             <!--// Slider \\-->
             <div class="sportsmagazine-banner-one">
                 <div class="sportsmagazine-banner-one-layer">
-                    <img src="extra-images/theteam.jpg" alt="">
+                    <img src="extra-images/theteams.jpg" alt="">
                     <span class="sportsmagazine-banner-pattren"></span>
                     <div class="sportsmagazine-banner-caption">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="sportsmagazine-banner-wrap">
-                                        <h1><span>We Are</span> Developing The <strong class="sportsmagazine-color">Game</strong> <span>Be Our Partner</span></h1>
+                                        <h1><span>{{ __('Nous') }}</span> {{ __('développons le') }} <strong class="sportsmagazine-color"> {{ __('Basketball') }}</strong> <span>{{ __('Soyez notre partenaire') }}</span></h1>
+                                        <p>{{ __('L\'innovation et la croissance du basketball sont au cœur de notre engagement, façonnant un avenir dynamique pour ce sport passionnant.') }}</p>
+
+{{--                                         <h1><span>We Are</span> Developing The <strong class="sportsmagazine-color">Game</strong> <span>Be Our Partner</span></h1>
                                         <p>Transforming the realm of basketball, we aspire to reach new heights and redefine the essence of this thrilling sport</p>
-                                        {{-- <a href="404.html" class="sportsmagazine-banner-btn">Read More <span></span></a> --}}
+ --}}                                        {{-- <a href="404.html" class="sportsmagazine-banner-btn">Read More <span></span></a> --}}
                                     </div>
                                     <div class="sportsmagazine-banner-thumb">  </div>
                                 </div>
@@ -132,7 +138,7 @@
                     </div>
                 </div>
                 <div class="sportsmagazine-banner-one-layer">
-                    <img src="extra-images/theteam2023.jpg" alt="">
+                    <img src="extra-images/theteams2.jpg" alt="">
                     <span class="sportsmagazine-banner-pattren"></span>
                     <div class="sportsmagazine-banner-caption">
                         <div class="container">
@@ -210,30 +216,41 @@
 
                             <!--// Latest Match Result \\-->
                             <div class="sportsmagazine-match-result" style="margin-bottom: 0px">
-                                <div class="sportsmagazine-match-title">
-                                    <h4>Latest Match Result</h4>
-                                    <span>{{ $lastGame->gameDate }}</span>
-                                </div>
-                                <ul>
-                                    <li>
-                                        <img src="extra-images/{{ $lastGame->teamA }}.png" alt="">
-                                        <h4><a >{{ $lastGame->teamA }}</a></h4>
-                                        {{-- <span>03 Mark Baily (21)</span> --}}
-                                    </li>
-                                    <li class="sportsmagazine-match-score">
-                                        <h5>FINAL SCORE</h5>
-                                        <p><strong class="sportsmagazine-color">{{ $lastGame->scoreA }}</strong> <small>:</small> {{ $lastGame->scoreB }}</p>
-                                    </li>
-                                    <li>
-                                        <img src="extra-images/{{ $lastGame->teamB }}.png" alt="">
-                                        <h4><a >{{ $lastGame->teamB }}</a></h4>
-                                        {{-- <span>03 Mark Baily (21)</span> --}}
-                                    </li>
-                                </ul>
+                                @if ($lastGame)
+                                    <div class="sportsmagazine-match-title">
+                                        <h4>{{ __('Résultat du dernier match') }}</h4>
+
+                                        <span>{{ $lastGame->gameDate }}</span>
+
+
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <img src="extra-images/{{ $lastGame->teamA }}.png" alt="">
+                                            <h4><a >{{ $lastGame->teamA }}</a></h4>
+                                            {{-- <span>03 Mark Baily (21)</span> --}}
+                                        </li>
+                                        <li class="sportsmagazine-match-score">
+                                            <h5>{{ __('Score final') }}</h5>
+                                            @if ($lastGame->teamA =="jsk")
+                                            <p><strong class="sportsmagazine-color" >{{ $lastGame->scoreA }}</strong> <small> :</small> <strong class="" style="color:white">{{ $lastGame->scoreB }}</strong></p>
+                                            @else
+                                            <p><strong class="" style="color:white">{{ $lastGame->scoreA }}</strong> <small> :</small> <strong class="sportsmagazine-color" >{{ $lastGame->scoreB }}</strong></p>
+                                            @endif
+                                        </li>
+                                        <li>
+                                            <img src="extra-images/{{ $lastGame->teamB }}.png" alt="">
+                                            <h4><a >{{ $lastGame->teamB }}</a></h4>
+                                            {{-- <span>03 Mark Baily (21)</span> --}}
+                                        </li>
+                                    </ul>
+                                @endif
                             </div>
                             <!--// Latest Match Result \\-->
 
-                            <!--// Fancy Title \\--> <div class="sportsmagazine-fancy-title" style="margin-top:40px"><h2>Latest News</h2></div> <!--// Fancy Title \\-->
+                            <!--// Fancy Title \\--> <div class="sportsmagazine-fancy-title" @if ($lastGame) style="margin-top:40px"
+
+                            @else style="margin-top:0px" @endif ><h2>{{ __('Dernières nouvelles') }}</h2></div> <!--// Fancy Title \\-->
                             <!--// Blog's \\-->
                             <div class="sportsmagazine-blog sportsmagazine-blog-grid">
                                 <ul class="row">
@@ -343,98 +360,33 @@
                             </figure> --}}
                             <!--// Advertisement \\-->
 
-                            <!--// Fancy Title \\--> <div class="sportsmagazine-fancy-title"><h2>Popular Players</h2></div> <!--// Fancy Title \\-->
+                            <!--// Fancy Title \\--> <div class="sportsmagazine-fancy-title"><h2>{{ __('Joueurs JSK') }}</h2></div> <!--// Fancy Title \\-->
                             <div class="sportsmagazine-player-slider">
-
                                 <div class="sportsmagazine-player-slider-image">
-                                    <div class="sportsmagazine-player-image-layer">
-                                        <img src="extra-images/capitanoo.png" alt="">
-                                        <div class="sportsmagazine-player-slider-caption">
-                                            <span>97</span>
-                                            <section>
-                                                <h6><a href="fixture-detail.html">Obaid Kochat</a></h6>
-                                                <small>Forword</small>
-                                            </section>
+                                    @foreach ($players as $player)
+                                        <div class="sportsmagazine-player-image-layer">
+                                            <img src="{{ $player->image }}" alt="">
+                                            <div class="sportsmagazine-player-slider-caption">
+                                                <span>{{ $player->number }}</span>
+                                                <section>
+                                                    <h6><a {{-- href="fixture-detail.html" --}}>{{ $player->fullname }}</a></h6>
+                                                    <small>{{ $player->position }}</small>
+                                                </section>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="sportsmagazine-player-image-layer">
-                                        <img src="extra-images/islemAjmi.png" alt="">
-                                        <div class="sportsmagazine-player-slider-caption">
-                                            <span>38</span>
-                                            <section>
-                                                <h6><a href="#">Islem Ajmi</a></h6>
-                                                <small>Defensive</small>
-                                            </section>
-                                        </div>
-                                    </div>
-                                    <div class="sportsmagazine-player-image-layer">
-                                        <img src="extra-images/jadJaouadi.png" alt="">
-                                        <div class="sportsmagazine-player-slider-caption">
-                                            <span>97</span>
-                                            <section>
-                                                <h6><a href="fixture-detail.html">Jad Jaouadi</a></h6>
-                                                <small>Forword</small>
-                                            </section>
-                                        </div>
-                                    </div>
-                                    <div class="sportsmagazine-player-image-layer">
-                                        <img src="extra-images/wass.png" alt="">
-                                        <div class="sportsmagazine-player-slider-caption">
-                                            <span>10</span>
-                                            <section>
-                                                <h6><a href="fixture-detail.html">Wassef Methnani</a></h6>
-                                                <small>Forword</small>
-                                            </section>
-                                        </div>
-                                    </div>
-                                    <div class="sportsmagazine-player-image-layer">
-                                        <img src="extra-images/ahmeddhif.png" alt="">
-                                        <div class="sportsmagazine-player-slider-caption">
-                                            <span>97</span>
-                                            <section>
-                                                <h6><a href="fixture-detail.html">Ahmed Dhif</a></h6>
-                                                <small>Forword</small>
-                                            </section>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
 
                                 <div class="sportsmagazine-player-slider-nav">
+                                    @foreach ($players as $player)
                                     <div class="sportsmagazine-player-nav-layer">
-                                        <span>09</span>
+                                        <span>{{ $player->number }}</span>
                                         <section>
-                                            <h6>Obaid Kochat</h6>
-                                            <small>Forword</small>
+                                            <h6>{{ $player->fullname }}</h6>
+                                            <small>{{ $player->position }}</small>
                                         </section>
                                     </div>
-                                    <div class="sportsmagazine-player-nav-layer">
-                                        <span>38</span>
-                                        <section>
-                                            <h6>Islem Ajmi</h6>
-                                            <small>Defensive</small>
-                                        </section>
-                                    </div>
-                                    <div class="sportsmagazine-player-nav-layer">
-                                        <span>97</span>
-                                        <section>
-                                            <h6>Jad Jaouadi</h6>
-                                            <small>Forword</small>
-                                        </section>
-                                    </div>
-                                    <div class="sportsmagazine-player-nav-layer">
-                                        <span>10</span>
-                                        <section>
-                                            <h6>Wassef Methnani</h6>
-                                            <small>Forword</small>
-                                        </section>
-                                    </div>
-                                    <div class="sportsmagazine-player-nav-layer">
-                                        <span>09</span>
-                                        <section>
-                                            <h6>Ahmed Dhif</h6>
-                                            <small>Forword</small>
-                                        </section>
-                                    </div>
+                                    @endforeach
                                 </div>
 
                             </div>
@@ -515,13 +467,13 @@
 
                             <!--// Widget TeamRanking \\-->
                             <div class="widget widget_team_ranking">
-                                <div class="sportsmagazine-fancy-title"><h2>Team Rankings</h2></div>
+                                <div class="sportsmagazine-fancy-title"><h2>{{ __('Classement d\'équipes') }}</h2></div>
                                 <div class="ranking-title-table">
                                     <ul class="ranking-title-row">
-                                        <li>Team Rank</li>
-                                        <li>W</li>
-                                        <li>D</li>
-                                        <li>PTS</li>
+                                        <li>{{ __('Classement') }}</li>
+                                        <li>{{ __('W') }}</li>
+                                        <li>{{ __('D') }}</li>
+                                        <li>{{ __('PTS') }}</li>
                                     </ul>
                                 </div>
                                 @foreach($teams as $index => $team)
@@ -543,7 +495,7 @@
 
                             <!--// Widget Popular News \\-->
                             <div class="widget widget_popular_news">
-                                <div class="sportsmagazine-fancy-title"><h2>Popular News</h2></div>
+                                <div class="sportsmagazine-fancy-title"><h2>{{ __('Nouvelles populaires') }}</h2></div>
                                 <ul>
                                     @foreach($PopularNews2 as $news)
                                         <li>
@@ -659,26 +611,28 @@
 
                             <!--// Widget Next Match \\-->
                             <div class="widget widget_next_match">
-                                <div class="sportsmagazine-fancy-title"><h2>Next Match</h2></div>
-                                <div class="widget_next_match_title">
-                                    <h5>Championship {{ $nextGame->gameWeek }} round</h5>
-                                    <span>{{ \Carbon\Carbon::parse($nextGame->gameDate)->format('l, F d, Y') }}</span>
-                                </div>
-                                <ul>
-                                    <li>
-                                        <img src="{{ asset('extra-images/'. $nextGame->teamA .'.png') }}" alt="{{ $nextGame->teamA }}">
-                                        <h6><a >{{ $nextGame->teamA }}</a></h6>
-                                    </li>
-                                    <li>
-                                        <div class="widget_next_match_option">
-                                            <small>{{ $nextGame->gameStadium }}</small>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <img src="{{ asset('extra-images/' . $nextGame->teamB . '.png') }}" alt="{{ $nextGame->teamB }}">
-                                        <h6><a >{{ $nextGame->teamB }}</a></h6>
-                                    </li>
-                                </ul>
+                                @if ($nextGame)
+                                    <div class="sportsmagazine-fancy-title"><h2>{{ __('Prochain match') }}</h2></div>
+                                    <div class="widget_next_match_title">
+                                        <h5>{{ __('Championnat') }} {{ $nextGame->gameWeek }}{{ __('Journée') }} </h5>
+                                        <span>{{ \Carbon\Carbon::parse($nextGame->gameDate)->format('l, F d, Y') }}</span>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <img src="{{ asset('extra-images/'. $nextGame->teamA .'.png') }}" alt="{{ $nextGame->teamA }}">
+                                            <h6><a >{{ $nextGame->teamA }}</a></h6>
+                                        </li>
+                                        <li>
+                                            <div class="widget_next_match_option">
+                                                <small>{{ $nextGame->gameStadium }}</small>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="{{ asset('extra-images/' . $nextGame->teamB . '.png') }}" alt="{{ $nextGame->teamB }}">
+                                            <h6><a >{{ $nextGame->teamB }}</a></h6>
+                                        </li>
+                                    </ul>
+                                @endif
 
                             {{-- <div class="widget_match_countdown">
                                     <h6>Game Countdown</h6>
@@ -712,7 +666,7 @@
 
 					</div>
                     <div class="col-md-12">
-                        <div class="sportsmagazine-fancy-title"><h2>Streaming</h2></div>
+                        <div class="sportsmagazine-fancy-title"><h2>{{ __('Streaming') }}</h2></div>
                         <div class="sportsmagazine-blog sportsmagazine-blog-grid">
                             <iframe width="560" height="415" src="https://www.youtube.com/embed/WXJ6qTHWzhY" frameborder="0" allowfullscreen></iframe>
                         </div> </div>

@@ -38,16 +38,19 @@ Route::get('/players', [GameController::class, 'showplayers'])->name('players');
 /* Route::get('/games/create', [GameController::class, 'create'])->name('games.create'); */
 Route::post('/games', [HomeController::class, 'store'])->name('games.store');
 Route::post('/addTeam', [HomeController::class, 'addTeam'])->name('addTeam');
-Route::post('/players', [HomeController::class, 'storePlayer'])->name('players.store');
+Route::post('/listes_joueurs', [PlayersController::class, 'store'])->name('players.store');
+Route::get('/delete/{id}', [PlayersController::class, 'destroy'])->name('players.delete');
 Route::post('/addcomment', [UserActionController::class, 'addcomment'])->name('addComment');
 Route::post('/insertNextGame', [HomeController::class, 'insertNextGame'])->name('insertNextGame');
 Route::post('/popular-news', [HomeController::class, 'popularnews'])->name('popular-news.store');
-Route::post('/update-player', [PlayersController::class, 'update'])->name('updateplayer');
+Route::post('/update-player/{id}', [PlayersController::class, 'update'])->name('updateplayer');
 Route::post('/popular-news/{id}/like', [GameController::class, 'like'])->name('like');
 Route::post('/envoyer-message', [UserActionController::class, 'envoyerMessage'])->name('envoyerMessage');
+Route::get('/language/{lang}', [UserActionController::class, 'changeLanguage'])->name('changeLanguage');
+
 
 
 // routes/web.php
-
-Route::resource('listes_joueurs', PlayersController::class);
+/*
+Route::resource('listes_joueurs', PlayersController::class); */
 

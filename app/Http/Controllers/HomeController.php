@@ -47,12 +47,8 @@ class HomeController extends Controller
     public function index()
     {
         $teams = Team::all();
-        $joueur = ListesJoueurs::all();
-
-
-
-
-        return view('home', compact('teams','joueur'));
+        $joueurs = Player::all();
+        return view('home', compact('teams','joueurs'));
     }
 
     public function emailinbox()
@@ -101,7 +97,6 @@ class HomeController extends Controller
 
         return redirect('/home');
     }
-
     public function insertNextGame(Request $request)
     {
         $data = $request->validate([
@@ -117,7 +112,7 @@ class HomeController extends Controller
 
         return redirect('/home');
     }
-    public function popularnews(Request $request)
+    public function popularnews(Request $request) //finished user/admin parts
     {
         // Validation des données
         $validatedData = $request->validate([
@@ -126,6 +121,7 @@ class HomeController extends Controller
             'content' => 'required',
             'date' => 'required|date',
             'topic' =>'required',
+            'popular' =>'required',
             'image' => [
                 'required',
                 'image',
@@ -145,7 +141,7 @@ class HomeController extends Controller
         toastr()->success(__('Popular news shared successufully!'));
         // Redirection ou autre logique après l'ajout
         return redirect()->back();
-    }
+    }/*
     public function storePlayer(Request $request)
     {
         // Valider les données du formulaire
@@ -166,7 +162,8 @@ class HomeController extends Controller
         toastr()->success(__('Player added successufully!'));
         // Rediriger ou renvoyer une réponse appropriée
         return redirect()->back();
-    }
+    } */
+
 
 
 

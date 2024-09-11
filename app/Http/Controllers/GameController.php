@@ -31,9 +31,10 @@ class GameController extends Controller
         $nextGame = NextGame::latest()->first();
         $lastGames = LastGame::orderBy('gameDate', 'asc')->get();
         $lastGame = LastGame::latest()->first();
+        $players=Player::all();
 
         $PopularNews2 = PopularNews::orderBy('likes', 'desc')->paginate(6);
-        return view('index',compact('lastGames','teams', 'lastGame', 'nextGame',  'PopularNews2'));
+        return view('index',compact('players','lastGames','teams', 'lastGame', 'nextGame',  'PopularNews2'));
     }
     public function blogs()
     {

@@ -53,14 +53,14 @@
             <div class="sportsmagazine-topstrip">
                 <div class="container">
                     <div class="row">
-                        <aside class="col-md-4">
+                        {{-- <aside class="col-md-4">
                             <ul class="sportsmagazine-social-network">
                                 <li><a href="#" class="sportsmagazine-colorhover fa fa-facebook-official"></a></li>
                                 <li><a href="#" class="sportsmagazine-colorhover fa fa-twitter-square"></a></li>
                                 <li><a href="#" class="sportsmagazine-colorhover fa fa-linkedin-square"></a></li>
                                 <li><a href="#" class="sportsmagazine-colorhover fa fa-google-plus-square"></a></li>
                             </ul>
-                        </aside>
+                        </aside> --}}
                         {{-- <aside class="col-md-8">
                             <ul class="sportsmagazine-user-section">
                                 <li><i class="fa fa-globe"></i> <a href="#">Support</a></li>
@@ -142,7 +142,7 @@
                                     </li> --}}
                                     @foreach($PopularNews as $news)
                                     <li class="col-md-6">
-                                        <figure><a href="{{ route('blogdetail', ['id' => $news->id]) }}"><img src="{{ asset('extra-images/ball.jpg') }}" alt=""></a></figure>
+                                        <figure><a href="{{ route('blogdetail', ['id' => $news->id]) }}"><img src="{{ asset($news->image) }}" alt=""></a></figure>
                                         <div class="sportsmagazine-blogmedium-text">
                                             <h5><a href="{{ route('blogdetail', ['id' => $news->id]) }}">{{ $news->title }}</a></h5>
                                             <ul class="sportsmagazine-blogmedium-option">

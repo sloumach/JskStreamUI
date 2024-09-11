@@ -102,12 +102,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>Players</h1>
+                        <h1>{{ __('Les joueurs') }}</h1>
                     </div>
                     <div class="col-md-12">
                         <ul class="sportsmagazine-breadcrumb">
-                            <li><a href="index-2.html">Home</a></li>
-                            <li>Players</li>
+                            <li><a href="index-2.html">{{ __('Acceuil') }}</a></li>
+                            <li>{{ __('Les joueurs') }}</li>
                         </ul>
                     </div>
                 </div>

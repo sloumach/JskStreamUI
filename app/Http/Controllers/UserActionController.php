@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Rules\NoBadWords;
-use App\Models\LastGame;
 use App\Models\Team;
-use App\Models\NextGame;
-use App\Models\PopularNews;
-use App\Models\ListesJoueurs;
 use App\Models\Comment;
-use Illuminate\Support\Facades\Validator;
 use App\Models\Message;
+use App\Models\LastGame;
+use App\Models\NextGame;
+use App\Rules\NoBadWords;
+use App\Models\PopularNews;
+use Illuminate\Http\Request;
+use App\Models\ListesJoueurs;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 use Symfony\Component\Console\Input\Input;
 
 class UserActionController extends Controller
@@ -87,6 +91,17 @@ class UserActionController extends Controller
         // Faites d'autres traitements si nécessaire
         toastr()->success(__('Message envoyé avec succès!'));
         // Exemple de redirection vers une page
+        return redirect()->back();
+    }
+    public function changeLanguage($lang)
+    {
+
+        Session::put('locale', $lang);
+
+        Log::info('Lang recieved: ' . $lang);
+        Log::info('Locale changed to: ' . $lang);
+        Log::info('Session Locale: ' . Session::get('locale'));
+
         return redirect()->back();
     }
 

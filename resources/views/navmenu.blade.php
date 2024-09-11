@@ -16,7 +16,7 @@
                                     </div>
                                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
                                       <ul class="nav navbar-nav">
-                                        <li ><a href="{{ route('indexUser') }}">Home</a>
+                                        <li ><a href="{{ route('indexUser') }}">{{ __('Acceuil') }}</a>
                                             {{-- <ul class="sportsmagazine-dropdown-menu">
                                                 <li><a href="index-2.html">Home One</a></li>
                                                 <li><a href="index-two.html">Home Two</a></li>
@@ -95,7 +95,7 @@
                                                 </li>
                                             </ul>
                                         </li> --}}
-                                        <li><a href="{{ route('blogs') }}">OUR NEWS</a>
+                                        <li><a href="{{ route('blogs') }}">{{ __('NEWS') }}</a>
                                             {{-- <ul class="sportsmagazine-dropdown-menu">
                                                 <li><a href="blog-grid.html">Blog Grid</a>
                                                     <ul class="sportsmagazine-dropdown-menu">
@@ -122,7 +122,7 @@
                                                 </li>
                                             </ul> --}}
                                         </li>
-                                        <li><a href="{{ route('players') }}">OUR PLAYERS</a>
+                                        <li><a href="{{ route('players') }}">{{ __('Les joueurs') }}</a>
                                             {{-- <ul class="sportsmagazine-dropdown-menu">
                                                 <li><a href="blog-grid.html">Blog Grid</a>
                                                     <ul class="sportsmagazine-dropdown-menu">
@@ -172,7 +172,7 @@
                                                 </li>
                                             </ul>
                                         </li> --}}
-                                        <li class="sportsmagazine-megamenu-li"><a href="{{ route('contactus') }}">Contact us</a>
+                                        <li class="sportsmagazine-megamenu-li"><a href="{{ route('contactus') }}">{{ __('Contactez-nous') }}</a>
                                             {{-- <ul class="sportsmagazine-megamenu">
                                                 <li class="row">
                                                     <div class="col-md-2">
@@ -201,7 +201,11 @@
                                                 </li>
                                             </ul> --}}
                                         </li>
-                                      </ul>
+                                        <li>
+                                            <a href="{{ route('changeLanguage', app()->getLocale() === 'ar' ? 'fr' : 'ar') }}">
+                                                {{ app()->getLocale() === 'ar' ? 'FR' : 'AR' }}
+                                            </a>
+                                        </li>                                      </ul>
                                     </div>
                                 </nav>
                                 {{-- <a data-toggle="modal" data-target="#searchModal" href="#" class="sportsmagazine-search-btn sportsmagazine-colorhover"><i class="fa fa-search"></i></a> --}}
