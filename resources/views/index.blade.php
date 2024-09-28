@@ -499,7 +499,7 @@
                                 <ul>
                                     @foreach($PopularNews2 as $news)
                                         <li>
-                                            <span> {{ $news->likes }}</span>
+                                            {{-- <span> {{ $news->likes }}</span> --}}
                                             <div class="popular_news_text">
                                                 <small>{{ $news->topic }}</small>
                                                 <a href="{{ route('blogdetail', ['id' => $news->id]) }}">{{ $news->title }}</a>

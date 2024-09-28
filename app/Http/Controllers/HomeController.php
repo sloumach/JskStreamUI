@@ -133,8 +133,9 @@ class HomeController extends Controller
         // Vérifier si une image a été téléchargée
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imagePath = $image->storeAs('extra-images', $image->getClientOriginalName(),'public'); // Stocker l'image dans le dossier "public/extra-images" avec le nom d'origine du fichier
-            $validatedData['image'] = '/extra-images/' . $image->getClientOriginalName(); // Ajouter le chemin de l'image validée aux données à enregistrer
+            $imageName = $image->getClientOriginalName(); // Nom original de l'image
+            $destinationPath = public_path('extra-images'); // Chemin vers le dossier public/extra-images
+            $image->move($destinationPath, $imageName);            $validatedData['image'] = '/extra-images/' . $image->getClientOriginalName(); // Ajouter le chemin de l'image validée aux données à enregistrer
         }
         // Création d'une nouvelle entrée dans la table
         PopularNews::create($validatedData);

@@ -57,14 +57,7 @@ class UserActionController extends Controller
 
     public function envoyerMessage(Request $request)
     {
-        $validate = Validator::make($request->all(),([
-            'g-recaptcha-response' => 'required|captcha'
-        ]));
-        if($validate->fails()){
-            toastr()->error(__('Validez le captcha!'));
 
-            return redirect()->back();
-        }
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
