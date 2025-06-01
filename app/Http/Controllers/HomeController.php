@@ -48,6 +48,7 @@ class HomeController extends Controller
     {
         $teams = Team::all();
         $joueurs = Player::all();
+
         return view('home', compact('teams','joueurs'));
     }
 

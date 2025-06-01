@@ -58,6 +58,8 @@
 
         <!--// Header \\-->
         <header id="sportsmagazine-header" class="sportsmagazine-header-one">
+    {{-- <iframe width="56" height="31" src="https://www.youtube.com/embed/i2ncOHyJ7R4?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
+
 
             <!--// TopStrip \\-->
             <div class="sportsmagazine-topstrip">
@@ -226,7 +228,7 @@
                                     </div>
                                     <ul>
                                         <li>
-                                            <img src="extra-images/{{ $lastGame->teamA }}.png" alt="">
+                                            <img src="extra-images/{{ strtolower($lastGame->teamA) }}.png" alt="">
                                             <h4><a >{{ $lastGame->teamA }}</a></h4>
                                             {{-- <span>03 Mark Baily (21)</span> --}}
                                         </li>
@@ -239,7 +241,7 @@
                                             @endif
                                         </li>
                                         <li>
-                                            <img src="extra-images/{{ $lastGame->teamB }}.png" alt="">
+                                            <img src="extra-images/{{ strtolower($lastGame->teamB) }}.png" alt="">
                                             <h4><a >{{ $lastGame->teamB }}</a></h4>
                                             {{-- <span>03 Mark Baily (21)</span> --}}
                                         </li>
@@ -619,7 +621,7 @@
                                     </div>
                                     <ul>
                                         <li>
-                                            <img src="{{ asset('extra-images/'. $nextGame->teamA .'.png') }}" alt="{{ $nextGame->teamA }}">
+<img src="{{ asset('extra-images/' . strtolower($nextGame->teamA) . '.png') }}" alt="{{ $nextGame->teamA }}">
                                             <h6><a >{{ $nextGame->teamA }}</a></h6>
                                         </li>
                                         <li>
@@ -628,7 +630,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <img src="{{ asset('extra-images/' . $nextGame->teamB . '.png') }}" alt="{{ $nextGame->teamB }}">
+                                            <img src="{{ asset('extra-images/' .  strtolower($nextGame->teamB)  . '.png') }}" alt="{{ $nextGame->teamB }}">
                                             <h6><a >{{ $nextGame->teamB }}</a></h6>
                                         </li>
                                     </ul>
@@ -668,7 +670,7 @@
                     <div class="col-md-12">
                         <div class="sportsmagazine-fancy-title"><h2>{{ __('Streaming') }}</h2></div>
                         <div class="sportsmagazine-blog sportsmagazine-blog-grid">
-                            <iframe width="560" height="415" src="https://www.youtube.com/embed/WXJ6qTHWzhY" frameborder="0" allowfullscreen></iframe>
+                            <iframe width="560" height="415" src="https://www.youtube.com/embed/gUa-G2KyGNo" frameborder="0" allowfullscreen></iframe>
                         </div> </div>
 				</div>
 			</div>

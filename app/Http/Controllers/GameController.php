@@ -12,6 +12,8 @@ use App\Models\ListesJoueurs;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Message;
 use App\Models\Player;
+use Illuminate\Support\Facades\DB;
+
 
 
 
@@ -28,12 +30,15 @@ class GameController extends Controller
         ->orderByDesc('victoires')
         ->orderBy('defaites')
         ->get();
+
         $nextGame = NextGame::latest()->first();
+
         $lastGames = LastGame::orderBy('gameDate', 'asc')->get();
         $lastGame = LastGame::latest()->first();
         $players=Player::all();
 
-        $PopularNews2 = PopularNews::orderBy('likes', 'desc')->paginate(6);
+        $PopularNews2 = PopularNews::orderBy('created_at', 'desc')->paginate(10);
+
         return view('index',compact('players','lastGames','teams', 'lastGame', 'nextGame',  'PopularNews2'));
     }
     public function blogs()
@@ -46,6 +51,7 @@ class GameController extends Controller
         $lastGames = LastGame::all();
         $lastGame = LastGame::latest()->first();
         $PopularNews = PopularNews::all();
+
         return view('blogs',compact('lastGames','teams', 'lastGame', 'nextGame','PopularNews'));
     }
     public function blogdetail (Request $request, $id)
@@ -71,7 +77,7 @@ class GameController extends Controller
         $viewData = [
             'post_id' => $id
         ];
-
+        $popularNews->increment('likes');
         return view ('blog-detail', compact('popularNews','viewData'));
     }
     public function like($id)
